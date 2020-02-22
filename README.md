@@ -3,7 +3,8 @@
 
 
 ## requirements
-Facebook account  
+* Facebook account  
+* Chromedriver
 
 ## how to use
 * 1 install webdriver
