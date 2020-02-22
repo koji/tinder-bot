@@ -7,14 +7,14 @@ https://tinder.com/
 * Chromedriver
 
 ## how to use
-* 1 install webdriver
+### install webdriver
 ```zsh
 $ brew cask install chromedriver
 # check version
 $ chromedriver --version
 ```
 
-* 2 run python script
+### run python script
 ```zsh
 $ git clone https://github.com/koji/tinder-bot.git
 $ cd tinder-bot
