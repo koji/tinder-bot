@@ -1,7 +1,15 @@
 # tinder-bot
 
+## requirements
+Facebook account  
+
 ## how to use
 * 1 install webdriver
+```zsh
+$ brew cask install chromedriver
+# check version
+$ chromedriver --version
+```
 
 * 2 run python script
 ```zsh
