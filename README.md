@@ -1,4 +1,6 @@
+![image](https://github.com/koji/tinder-bot/blob/master/image/logo.png)
 # tinder-bot
+
 
 ## requirements
 Facebook account  
