@@ -101,7 +101,6 @@ class TinderBot:
 
   def take_screenshot(self):
       filename = self.randomString()+'.png'
-      # self.driver.save_screenshot(filename)
       image = self.driver.find_element_by_xpath(
           '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[1]/div[1]/div/div[1]/div/div')
       image_url = image.value_of_css_property("background-image")
@@ -111,9 +110,6 @@ class TinderBot:
       resp = requests.get(raw_url)
       im = Image.open(BytesIO(resp.content)).convert("RGB")
       im.save(filename, "png")
-      # imageStream = io.BytesIO(image)
-      # im = Image.open(imageStream)
-      # im.save(filename)
 
   def auto_swipe(self, debug):
       while True:
