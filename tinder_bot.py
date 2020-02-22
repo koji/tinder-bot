@@ -4,6 +4,10 @@ import getpass
 import sys
 import random
 import string
+import io
+from PIL import Image
+import requests
+from io import BytesIO
 
 class TinderBot:
   def __init__(self):
@@ -97,7 +101,19 @@ class TinderBot:
 
   def take_screenshot(self):
       filename = self.randomString()+'.png'
-      self.driver.save_screenshot(filename)
+      # self.driver.save_screenshot(filename)
+      image = self.driver.find_element_by_xpath(
+          '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[1]/div[1]/div/div[1]/div/div')
+      image_url = image.value_of_css_property("background-image")
+      raw_url = image_url.replace('url("', '').replace('")', '')
+      # get webp
+      # convert webp --> png
+      resp = requests.get(raw_url)
+      im = Image.open(BytesIO(resp.content)).convert("RGB")
+      im.save(filename, "png")
+      # imageStream = io.BytesIO(image)
+      # im = Image.open(imageStream)
+      # im.save(filename)
 
   def auto_swipe(self, debug):
       while True:
@@ -113,7 +129,11 @@ class TinderBot:
             try:
               self.close_popup()
             except Exception:
-              self.close_match()
+              try:
+                  self.close_match()
+              except BaseException:
+                  home_screen_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button[2]')
+                  home_screen_btn.click()
         else:
           if debug:
             print('swipe not like')
