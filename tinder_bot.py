@@ -95,6 +95,18 @@ class TinderBot:
           '//*[@id="modal-manager-canvas"]/div/div/div[1]/div/div[3]/a')
       popup.click()
 
+  def close_home(self):
+      popup = self.driver.find_element_by_xpath(
+          '//*[@id="modal-manager"]/div/div/div[2]/button[2]')
+      popup.click()
+
+  def not_pay(self):
+      popup = self.driver.find_element_by_xpath(
+          '//*[@id="modal-manager"]/div/div/div[3]/button[2]')
+      popup.click()
+      print('cannot swipe any more')
+      print('will finish the program')
+
   def randomString(self, stringLength=10):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(stringLength))
@@ -128,8 +140,12 @@ class TinderBot:
               try:
                   self.close_match()
               except Exception:
-                  home_screen_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button[2]')
-                  home_screen_btn.click()
+                  try:
+                      self.close_home()
+                  except Exception:
+                      self.not_pay()
+                      driver.close()
+                      break
         else:
           if debug:
             print('swipe not like')
