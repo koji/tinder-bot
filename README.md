@@ -3,7 +3,7 @@
 ## how to use
 
 ```zsh
-$ git clone 
+$ git clone https://github.com/koji/tinder-bot.git
 $ cd tinder-bot
 $ pip install -r require
 ```
