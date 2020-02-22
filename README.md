@@ -1,9 +1,9 @@
 ![image](https://github.com/koji/tinder-bot/blob/master/image/logo.png)
 # tinder-bot
-
+https://tinder.com/
 
 ## requirements
-* Facebook account  
+* Facebook account (http://facebook.com/) 
 * Chromedriver
 
 ## how to use
