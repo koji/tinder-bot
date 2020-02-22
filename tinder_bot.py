@@ -3,6 +3,7 @@ from time import sleep
 import getpass
 import sys
 import random
+import string
 
 class TinderBot:
   def __init__(self):
@@ -90,6 +91,14 @@ class TinderBot:
           '//*[@id="modal-manager-canvas"]/div/div/div[1]/div/div[3]/a')
       popup.click()
 
+  def randomString(self, stringLength=10):
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(stringLength))
+
+  def take_screenshot(self):
+      filename = self.randomString()+'.png'
+      self.driver.save_screenshot(filename)
+
   def auto_swipe(self, debug):
       while True:
         sleep(1)
@@ -98,6 +107,7 @@ class TinderBot:
           try:
             if debug:
               print('swipe like')
+            self.take_screenshot()
             self.like()
           except Exception:
             try:
