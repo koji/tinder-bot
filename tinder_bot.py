@@ -127,7 +127,7 @@ class TinderBot:
             except Exception:
               try:
                   self.close_match()
-              except BaseException:
+              except Exception:
                   home_screen_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button[2]')
                   home_screen_btn.click()
         else:
