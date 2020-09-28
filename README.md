@@ -2,6 +2,12 @@
 # tinder-bot
 https://tinder.com/
 
+## python and pypi versions
+python 3.6.5
+selenium 3.141.0
+requests 2.22.0
+Pillow 6.2.0
+
 ## requirements
 * Facebook account (http://facebook.com/) 
 * Chromedriver
